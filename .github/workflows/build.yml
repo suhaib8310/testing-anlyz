@@ -5,7 +5,7 @@ def text_analysis():
     text = input("> ")
     
     # إزالة علامات الترقيم لتحليل أدق
-    text_cleaned = text.translate(str.maketrans('', '', string.punctuation))
+    #text_cleaned = text.translate(str.maketrans('', '', string.punctuation))
     
     # حساب عدد الكلمات
     word_count = len(text_cleaned.split())
