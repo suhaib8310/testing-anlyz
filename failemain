@@ -1,0 +1,24 @@
+def calculate_average():
+    print("مرحباً! أدخل مجموعة من الأرقام مفصولة بمسافات:")
+    numbers = input("> ")
+    
+    # تحويل الإدخال إلى قائمة من الأرقام
+    try:
+        num_list = [float(num) for num in numbers.split()]
+        
+        # التحقق من وجود أرقام
+        if len(num_list) == 0:
+            print("لم يتم إدخال أي أرقام. حاول مرة أخرى.")
+            return
+        
+        # حساب المتوسط
+        average = sum(num_list) / len(num_list)
+        
+        # عرض النتيجة
+        print(f"\nالأرقام المدخلة: {num_list}")
+        print(f"متوسط الأرقام: {average:.2f}")
+    except ValueError:
+        print("يرجى إدخال أرقام فقط!")
+
+# تشغيل البرنامج
+calculate_average()
