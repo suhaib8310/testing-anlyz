@@ -1,0 +1,34 @@
+import string
+
+def text_analysis():
+    print("مرحباً! أدخل النص الذي تريد تحليله:")
+    text = input("> ")
+    
+    # إزالة علامات الترقيم لتحليل أدق
+    text_cleaned = text.translate(str.maketrans('', '', string.punctuation))
+    
+    # حساب عدد الكلمات
+    word_count = len(text_cleaned.split())
+    
+    # حساب عدد الحروف (مع وبدون مسافات)
+    char_count_with_spaces = len(text)
+    char_count_without_spaces = len(text.replace(" ", ""))
+    
+    # حساب عدد الجمل (يعتبر النقطة، علامة التعجب أو علامة الاستفهام نهاية جملة)
+    sentence_count = text.count('.') + text.count('!') + text.count('?')
+    
+    # العثور على أكثر كلمة مكررة
+    words = text_cleaned.lower().split()
+    most_common_word = max(set(words), key=words.count)
+    most_common_count = words.count(most_common_word)
+    
+    # عرض النتائج
+    print("\nنتائج التحليل:")
+    print(f"- عدد الكلمات: {word_count}")
+    print(f"- عدد الحروف (مع المسافات): {char_count_with_spaces}")
+    print(f"- عدد الحروف (بدون المسافات): {char_count_without_spaces}")
+    print(f"- عدد الجمل: {sentence_count}")
+    print(f"- أكثر كلمة مكررة: '{most_common_word}' (ظهرت {most_common_count} مرات)")
+
+# تشغيل البرنامج
+text_analysis()
